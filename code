@@ -4,15 +4,15 @@ const app = express();
 
 app.use(express.json());
 
-// ✅ Connect to MongoDB
+// Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/productsDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('✅ Connected to MongoDB'))
-.catch(err => console.log('❌ Database connection error:', err));
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.log('Database connection error:', err));
 
-// ✅ Product Schema and Model
+// Product Schema and Model
 const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
-// ✅ ROUTES
+//  ROUTES
 
 // Get all products
 app.get('/products', async (req, res) => {
